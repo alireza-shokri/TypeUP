@@ -1,0 +1,192 @@
+/* Global Styles */
+* {
+  font-family: "Exo 2", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(0, 31, 51);
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  height: 97vh;
+  max-height: 97vh;
+  justify-content: center;
+  align-items: center;
+}
+
+::selection {
+  background-color: #00ff5533;
+  color: #00ff55;
+}
+
+/* Section Styles */
+.section {
+  display: none;
+}
+
+/* Parent Speed Time Styles */
+.parent_speed_time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.time,
+.speed {
+  color: orange;
+  font-size: 1.4rem;
+  padding: 0.6rem 0;
+  text-align: center;
+  border-radius: 0.4rem;
+}
+
+/* Parent Box Styles */
+.parentBox {
+  position: relative;
+}
+
+.box {
+  transition: all 0.1s linear;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+  padding: 1.5rem 1rem;
+  cursor: text;
+}
+
+.box .letter {
+  color: rgb(99, 95, 89);
+  word-spacing: 0.2rem;
+}
+
+/* Letter Styles */
+.correctLetter {
+  color: goldenrod !important;
+}
+
+.wrongLetter {
+  color: orangered !important;
+}
+
+.wrongSpace {
+  border: 1px solid orangered;
+  border-radius: 0.3rem;
+}
+
+/* Pipe Styles */
+.pipe {
+  transition: all 0.2s;
+  position: absolute;
+  width: 0.17rem;
+  height: 2.3rem;
+  background-color: gold;
+  border-radius: 1rem;
+}
+
+.pipeWink {
+  animation: pipAnimation 1.1s infinite;
+}
+
+@keyframes pipAnimation {
+  0%,
+  50% {
+    background-color: gold;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Button Styles */
+.parentBtns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  color: wheat;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0.7rem;
+  margin-top: 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn_rest {
+  background-color: #ff3c008a;
+}
+
+.btn_next {
+  background-color: rgba(29, 75, 202, 0.733);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn_next[disabled] {
+  cursor: not-allowed;
+}
+
+/* Loader Styles */
+.loader {
+  color: rgb(209, 201, 188);
+  display: inline-block;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  letter-spacing: 4px;
+  box-sizing: border-box;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  right: 68px;
+  bottom: 10px;
+  height: 24px;
+  width: 7px;
+  outline: 1px solid #fff;
+  color: #ff3d00;
+  box-sizing: border-box;
+  animation: animloader1 1s linear infinite alternate;
+}
+
+.loader::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #ff3d00;
+  position: absolute;
+  right: 70px;
+  top: 8px;
+  box-sizing: border-box;
+  animation: animloader 1s ease-out infinite alternate;
+}
+
+@keyframes animloader {
+  0% {
+    top: 8px;
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    top: 0px;
+    transform: rotate(180deg) scale(1.5);
+  }
+}
+
+@keyframes animloader1 {
+  0% {
+    box-shadow: 0 0 inset;
+  }
+  100% {
+    box-shadow: 0 -28px inset;
+  }
+}
