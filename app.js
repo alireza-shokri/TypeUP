@@ -82,7 +82,7 @@ const pipePosition = (count) => {
   timeSave = time;
 
   setTimeout(() => {
-    if (time === timeSave && counter + 1 !== letterList.length) {
+    if (time === timeSave) {
       pipeWink(true);
     }
   }, 1500);
@@ -145,6 +145,7 @@ const keyCheck = (e) => {
 
 // Handle key
 const handleKey = (e) => {
+  e.preventDefault()
   if (activeGame) {
     statusPipeWink && pipeWink(false);
 
