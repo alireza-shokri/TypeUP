@@ -22,7 +22,7 @@ let minute = 0;
 let second = 0;
 let timeStart;
 let timeSave;
-let wordList;
+let wordListTypeing;
 let letterList;
 let letterElems;
 let intervalTimer;
@@ -47,7 +47,8 @@ const disableButton = (button, isDisabled) => {
   button.disabled = isDisabled;
 };
 
-const formatTime = (min, sec) => `${String(min).padStart(2, "0")} : ${String(sec).padStart(2, "0")}`;
+const formatTime = (min, sec) =>
+  `${String(min).padStart(2, "0")} : ${String(sec).padStart(2, "0")}`;
 
 // Request
 const fetchText = async () => {
@@ -108,8 +109,9 @@ const timer = () => {
 
 // Speed
 const typingSpeed = () => {
+  wordListTypeing = letterList.slice(0, counter).join("").split(" ");
   const waitTime = (new Date() - timeStart) / 60000;
-  const speed = Math.floor(wordList.length / waitTime);
+  const speed = Math.floor(wordListTypeing.length / waitTime);
   updateDisplay(speedElem, speed);
 };
 
@@ -145,7 +147,7 @@ const keyCheck = (e) => {
 
 // Handle key
 const handleKey = (e) => {
-  e.preventDefault()
+  e.preventDefault();
   if (activeGame) {
     statusPipeWink && pipeWink(false);
 
@@ -173,11 +175,9 @@ const requestAndSetup = async () => {
 
   const text = await fetchText();
   letterList = text.split("");
-  wordList = text.split(" ");
-
   pasteText(letterList);
-  letterElems = $.querySelectorAll(".letter");
 
+  letterElems = $.querySelectorAll(".letter");
   loader.style.display = "none";
   section.style.display = "block";
   pipePosition(0);
