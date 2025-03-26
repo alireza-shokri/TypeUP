@@ -28,7 +28,21 @@ body {
 .section {
   display: none;
 }
-
+.result {
+  display: flex;
+  flex-direction: column;
+  color: #00ff55;
+  background-color: rgba(19, 168, 19, 0.144);
+  width: 20rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+ padding: 0.4rem;
+ border-radius: 0.5rem;
+ display: none;
+}
+.result span{
+  padding: 0.3rem;
+}
 /* Parent Speed Time Styles */
 .parent_speed_time {
   display: flex;
