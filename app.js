@@ -130,7 +130,7 @@ const processKey = (key, keyCode) => {
 
 // Handle key
 const handleKey = (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   if (!activeGame) return;
 
   statusPipeWink && pipeWink(false);
